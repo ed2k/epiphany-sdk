@@ -4,7 +4,7 @@ set -e
 
 if [[ "`arch`" == "x86_64" ]]; then
 	echo "Setting path to ARM tools."
-	GNU_PATH='a-'
+	GNU_PATH='arm-linux-gnueabihf-'
 else
 	GNU_PATH=''
 fi
@@ -18,7 +18,7 @@ fi
 BUILD_DEVICE='yes'
 BUILD_HOST='yes'
 
-MK_CLEAN='yesXX'
+MK_CLEAN='yes'
 MK_ALL='yes'
 
 
@@ -53,7 +53,7 @@ if [[ "${BUILD_HOST}" == "yes" ]]; then
 	fi
 	if [[ "${MK_ALL}" == "yes" ]]; then
 		echo "*** Building host program"
-		make --warn-undefined-variables BuildConfig=${Config} all
+		make --warn-undefined-variables BuildConfig=${Config} CROSS_COMPILE=${GNU_PATH} all
 	fi
 	popd >& /dev/null
 fi

@@ -12,10 +12,12 @@ REV="5.13.09.10"
 
 # Host machine architecture
 ARCH="armv7l"
+ARCH="x64"
 
 # List if available BSPs and default BSP
 BSPS="zed_E16G3_512mb zed_E64G4_512mb parallella_E16G3_1GB"
-BSP="parallella_E16G3_1GB"
+#BSP="parallella_E16G3_1GB"
+BSP="zed_E16G3_512mb"
 
 EPIPHANY_HOME="${ESDKPATH}/esdk"
 ESDK="${ESDKPATH}/esdk.${REV}"
@@ -31,7 +33,7 @@ export EPIPHANY_HOME
 echo "==============================================="
 echo "| NOTE: The default BSP is set to ${BSP}"
 echo "| Please make sure it matches your system,    |"
-echo "| or chenge the settings in this build script |"
+echo "| or change the settings in this build script |"
 echo "==============================================="
 
 # Create the SDK tree and set default symlinks
